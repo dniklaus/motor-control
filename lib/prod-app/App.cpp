@@ -9,7 +9,7 @@
 #include <SpinTimer.h>
 #include <Indicator.h>
 #include <IndicatorFactory.h>
-#include <MyBuiltinLedIndicatorAdapter.h>
+#include "MyBuiltinLedIndicatorAdapter.h"
 #include <Button.h>
 #include <ButtonEdgeDetector.h>
 #include <MyButtonAdapter.h>
@@ -26,19 +26,21 @@ App::App()
 
 App::~App()
 { 
-  // delete m_led->adapter();  // TODO: this needs the Indicator dtor to provice public CCSS
-  // m_led->assignAdapter(0);
+  if (0 != m_led)
+  {
+    delete m_led->adapter();
+    m_led->assignAdapter(0);
+  }
 
-  // delete m_led;
-  // m_led = 0;
+  delete m_led;
+  m_led = 0;
 
-  // delete m_sCmd;
-  // m_sCmd = 0;
+  delete m_sCmd;
+  m_sCmd = 0;
 }
 
 void App::setup()
 {
-
   // setup basic debug environment (heap usage printer, trace ports & dbg cli)
   ProductDebug::setupProdDebugEnv(m_sCmd);
 
