@@ -187,7 +187,7 @@ To use *wiring-skeleton* as a template for a new project, it has to be forked lo
 2. Within a **Git Bash:**
    1. Clone the *wiring-skeleton* as a **bare repository**:
    ```bash
-      git clone --bare git@github.com:ERNICommunity/wiring-skeleton.git
+      git clone --bare git@github.com:dniklaus/wiring-skeleton.git
    ```
    2. Replace origin with the one for your new project (i.e. project *my-test*, with *your-name* as GitHub user name):
    ```bash
